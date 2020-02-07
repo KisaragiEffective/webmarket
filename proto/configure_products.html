@@ -28,7 +28,8 @@ function record(id, author, takeMap, giveMap) {
 <body>
 <noscript>JavaScriptを有効にしてください。</noscript>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
+const addOnLoad = (f) => document.addEventListener("DOMContentLoaded", f);
+addOnLoad(() => {
   // TODO: PHPに置き換える
   record(1036, "kisaragi-chan", new Map([["Gift", 100], ["Dirt", 20]]), new Map([["Stone", 80]]));
   // 以下任意行追加できる。
