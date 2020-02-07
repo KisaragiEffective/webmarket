@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+Webmarket @ Prototype
+</title>
+<meta charset="UTF-8">
+<script>
+const lbp = (id, author, takeMap, giveMap) => {
+  // TODO: Map.joinはないのだろうか？
+  let takes = "";
+  takeMap.forEach((k, v) => {
+    takes += `${k} x${v}`;
+  });
+  
+  let gives = "";
+  giveMap.forEach((k, v) => {
+    gives += `${k} x${v}`;
+  });
+  return `<tr><td>#${id}</td><td>${author}</td><td>${takes} ---&gt; ${gives}</td></tr>`
+}
+
+function record(id, author, takeMap, giveMap) {
+  document.getElementById("product").insertAdjacentHTML("beforeend", lbp(id, author, takeMap, giveMap));
+}
+</script>
+</head>
+<body>
+<noscript>JavaScriptを有効にしてください。</noscript>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // TODO: PHPに置き換える
+  record(1036, "kisaragi-chan", new Map([["Gift", 100], ["Dirt", 20]]), new Map([["Stone", 80]]));
+  // 以下任意行追加できる。
+});
+</script>
+<h1>出品管理画面</h1>
+<div style="">
+<table id="product">
+  <tr><th>ID</th><th>By</th><th>取引</th></tr>
+</table>
+</div>
+</body>
+</html>
