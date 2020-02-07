@@ -17,13 +17,20 @@ const lbp = (id, author, takeMap, giveMap) => {
   giveMap.forEach((k, v) => {
     gives += `${k} x${v}`;
   });
-  return `<tr><td>#${id}</td><td>${author}</td><td>${takes} ---&gt; ${gives}</td></tr>`
+  return `<tr><td>#${id}</td><td>${author}</td><td>${takes} ---&gt; ${gives}</td><td><a href="javascript:void(0)">[Settings]</a> <a href="javascript:askFinal(${id})">[Delete]</a></td></tr>`
+}
+
+function askFinal(id) {
+  if (confirm("Are you sure deleting offer #" + id + "?")) {
+    alert("Deleted");
+  }
 }
 
 function record(id, author, takeMap, giveMap) {
   document.getElementById("product").insertAdjacentHTML("beforeend", lbp(id, author, takeMap, giveMap));
 }
 </script>
+
 </head>
 <body>
 <noscript>JavaScriptを有効にしてください。</noscript>
