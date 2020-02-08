@@ -1,6 +1,8 @@
 # w0
-some market transaction via your browser for seichi.click
+some market via your browser for seichi.click
 
 # requirements
-* PHP ~= `7.4.2`
-* Larvel ~= `6`
+See composer.json
+
+# client requirements
+*TODO: Sniff compatilibities*
