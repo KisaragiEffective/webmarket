@@ -93,7 +93,7 @@
                     <ul>
                         <li>minecraft.jp: {{$external_service['minecraft.jp']}}</li>
                         <li>minecraft.net: {{$external_service['minecraft.net']}}</li>
-                        <li>minecraft.net: {{$external_service['minecraft.net']}}</li>
+                        <li>api.market.minecraftserver.jp: {{$external_service['api.market.minecraftserver.jp']}}</li>
                     </ul>
                 </div>
             </div>
