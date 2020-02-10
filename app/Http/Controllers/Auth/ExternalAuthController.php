@@ -17,11 +17,7 @@ class ExternalAuthController extends Controller
     public function toProvider()
     {
         // jms
-        $minecraftjp = new MinecraftJP([
-            'clientId'     => env('JMS_CLIENT_ID'),
-            'clientSecret' => env('JMS_CLIENT_SECRET'),
-            'redirectUri'  => env('JMS_CALLBACK')
-        ]);
+        $minecraftjp = this->getJMS();
 
         // Get login url for redirect
         $loginUrl = $minecraftjp->getLoginUrl();
@@ -29,25 +25,13 @@ class ExternalAuthController extends Controller
         return redirect($loginUrl);
     }
     
-    private function toJMS() {
-
-    }
-    
     public function fromProvider() {
         try {
-            $minecraftjp = new MinecraftJP([
-                'clientId'     => env('JMS_CLIENT_ID'),
-                'clientSecret' => env('JMS_CLIENT_SECRET'),
-                'redirectUri'  => env('JMS_CALLBACK')
-            ]);
+            $minecraftjp = this->getJMS();
 
             // Get User
             $user = $minecraftjp->getUser();
             Log::debug(print_r($user, 1));
-
-            // Get Access Token
-//            $accessToken = $minecraftjp->getAccessToken();
-//            Log::debug(print_r($accessToken, 1));
 
         } catch (\Exception $e) {
             return redirect('/login/failed');
@@ -63,5 +47,18 @@ class ExternalAuthController extends Controller
         }
 
         return redirect()->to($callback_url);
+    }
+
+    public function logout() {
+
+    }
+
+    // ...だからこそPHP 7が使われなければならない
+    private function getJMS(): MinecraftJP {
+        return new MinecraftJP([
+                               'clientId'     => env('JMS_CLIENT_ID'),
+                               'clientSecret' => env('JMS_CLIENT_SECRET'),
+                               'redirectUri'  => env('JMS_CALLBACK')
+                           ]);
     }
 }
