@@ -17,7 +17,7 @@ class ExternalAuthController extends Controller
     public function toProvider()
     {
         // jms
-        $minecraftjp = this->getJMS();
+        $minecraftjp = getJMS();
 
         // Get login url for redirect
         $loginUrl = $minecraftjp->getLoginUrl();
@@ -27,7 +27,7 @@ class ExternalAuthController extends Controller
     
     public function fromProvider() {
         try {
-            $minecraftjp = this->getJMS();
+            $minecraftjp = getJMS();
 
             // Get User
             $user = $minecraftjp->getUser();
@@ -50,7 +50,17 @@ class ExternalAuthController extends Controller
     }
 
     public function logout() {
+        try {
+            $minecraftjp = getJMS();
+            Log::debug('ログアウト処理');
 
+            $minecraftjp->logout();
+
+            return redirect()->to('/');
+
+        } catch (\Exception $e) {
+            return redirect('/login');
+        }
     }
 
     // ...だからこそPHP 7が使われなければならない
