@@ -10,6 +10,15 @@ use Session;
 
 class ExternalAuthController extends Controller
 {
+
+    // ...だからこそPHP 7が使われなければならない
+    private function getJMS(): MinecraftJP {
+        return new MinecraftJP([
+                               'clientId'     => env('JMS_CLIENT_ID'),
+                               'clientSecret' => env('JMS_CLIENT_SECRET'),
+                               'redirectUri'  => env('JMS_CALLBACK')
+                           ]);
+    }
     /**
      * Externally authorization
      * @return Response
@@ -61,14 +70,5 @@ class ExternalAuthController extends Controller
         } catch (\Exception $e) {
             return redirect('/login');
         }
-    }
-
-    // ...だからこそPHP 7が使われなければならない
-    private function getJMS(): MinecraftJP {
-        return new MinecraftJP([
-                               'clientId'     => env('JMS_CLIENT_ID'),
-                               'clientSecret' => env('JMS_CLIENT_SECRET'),
-                               'redirectUri'  => env('JMS_CALLBACK')
-                           ]);
     }
 }
