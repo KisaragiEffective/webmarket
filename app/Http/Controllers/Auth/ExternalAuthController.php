@@ -8,8 +8,7 @@ use MinecraftJP;
 use Log;
 use Session;
 
-class ExternalAuthController extends Controller
-{
+class ExternalAuthController extends Controller {
 
     // ...だからこそPHP 7が使われなければならない
     private function getJMS(): MinecraftJP {
@@ -23,10 +22,9 @@ class ExternalAuthController extends Controller
      * Externally authorization
      * @return Response
      */
-    public function toProvider()
-    {
+    public function toProvider() {
         // jms
-        $minecraftjp = getJMS();
+        $minecraftjp = $this->getJMS();
 
         // Get login url for redirect
         $loginUrl = $minecraftjp->getLoginUrl();
@@ -36,7 +34,7 @@ class ExternalAuthController extends Controller
     
     public function fromProvider() {
         try {
-            $minecraftjp = getJMS();
+            $minecraftjp = $this->getJMS();
 
             // Get User
             $user = $minecraftjp->getUser();
@@ -60,7 +58,7 @@ class ExternalAuthController extends Controller
 
     public function logout() {
         try {
-            $minecraftjp = getJMS();
+            $minecraftjp = $this->getJMS();
             Log::debug('ログアウト処理');
 
             $minecraftjp->logout();
