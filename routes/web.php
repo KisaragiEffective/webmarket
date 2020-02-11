@@ -18,8 +18,9 @@ Route::get('/', function () {
 });
 */
 Route::get('/', 'RootAppController@index');
-Route::get('/login/minecraft.jp', 'Auth\ExternalAuthController@toProvider');
-Route::get('/login/minecraft.jp/callback', 'Auth\ExternalAuthController@fromProvider');
-Route::get('/logout/minecraft.jp', 'Auth\ExternalAuthController@logout');
+Route::get('login/minecraft.jp', 'Auth\ExternalAuthController@toProvider');
+Route::get('login/minecraft.jp/callback', 'Auth\ExternalAuthController@fromProvider');
+Route::get('logout/minecraft.jp', 'Auth\ExternalAuthController@logout');
+Route::match(['get', 'post'], 'login', 'Auth\ExternalAuthController@toProvider')->name('login');
 
-
+// There will be a 404.

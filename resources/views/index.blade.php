@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Web market - Prototype</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -61,39 +61,57 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            li.ok {
+                color: #404040;
+                border-left: solid 0.5em #1fa67a;/*左側の線*/
+                border-bottom: solid 0.2em #dadada;/*下に灰色線*/
+                background: whitesmoke;
+                margin-bottom: 0.2em;/*下のバーとの余白*/
+                line-height: 1.5;
+                padding: 0.5em;
+                list-style-type: none!important;/*ポチ消す*/
+                font-weight: bold;
+            }
+
+            li.ng {
+                color: #404040;
+                border-left: solid 0.5em #DD1155;/*左側の線*/
+                border-bottom: solid 0.2em #dadada;/*下に灰色線*/
+                background: whitesmoke;
+                margin-bottom: 0.2em;/*下のバーとの余白*/
+                line-height: 1.5;
+                padding: 0.5em;
+                list-style-type: none!important;/*ポチ消す*/
+                font-weight: bold;
+            }
         </style>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
+            <div class="top-right links">
+                @auth
+                    <a href="{{ route('home') }}">Home</a>
+                @else
+                    <a href="{{ route('login') }}">Login</a>
+                @endauth
+            </div>
 
             <div class="content">
                 <div class="title m-b-md">
                     Web Market!
                 </div>
 
-                <p>Coming soon</p>
+                <p>Coming soon.</p>
                 <div class="links">
                     <a href="https://github.com/KisaragiEffective/webmarket">GitHub</a>
                 </div>
                 
                 <div>
                     <ul>
-                        <li>minecraft.jp: {{$external_service['minecraft.jp']}}</li>
-                        <li>minecraft.net: {{$external_service['minecraft.net']}}</li>
-                        <li>api.market.minecraftserver.jp: {{$external_service['api.market.minecraftserver.jp']}}</li>
+                        @foreach($external_service as $service => $status)
+                        <li class="{{$status}}">{{$service}}: {{strtoupper($status)}}</li>
+                        @endforeach
                     </ul>
                 </div>
             </div>

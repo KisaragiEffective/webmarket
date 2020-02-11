@@ -9,15 +9,15 @@ class RootAppController extends Controller
      */
     public function index()
     {
-            // TODO: Market APIがオンラインかどうか確認して、それを表示する
-        // viewをセット
+        // TODO: Market APIがオンラインかどうか確認
         return view(
             'index', [
                 // 外部サービスのステータス
                 'external_service' => [
-                    'minecraft.net' => 'OK',
-                    'minecraft.jp'  => 'OK',
-                    'api.market.minecraftserver.jp' => 'OK'
+                    'minecraft.net' => 'ok',
+                    'minecraft.jp'  => 'ok',
+                    'api.market.minecraftserver.jp' => 'ok',
+                    'notexists.minecraftserver.jp' => 'ng',
                 ],
             ]
         );

@@ -2,6 +2,7 @@
 namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
+use Illuminate\Auth\UserProviderInterface;
 use App\Http\Controllers\Controller;
 
 use MinecraftJP;
