@@ -40,7 +40,7 @@ class ExternalAuthController extends Controller {
             // Get User
             $user = $minecraftjp->getUser();
             Log::debug(print_r($user, 1));
-
+            Session::put('minecraftjp', $user);
         } catch (\Exception $e) {
             return redirect('/login/failed');
         }

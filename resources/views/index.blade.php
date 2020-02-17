@@ -90,11 +90,11 @@
     <body>
         <div class="flex-center position-ref full-height">
             <div class="top-right links">
-                @auth
-                    <a href="{{ route('home') }}">Home</a>
+                @if(!!session('minecraftjp'))
+                    <a href="javascript:void(0)">Home</a>
                 @else
                     <a href="{{ route('login') }}">Login</a>
-                @endauth
+                @endif
             </div>
 
             <div class="content">
@@ -105,6 +105,7 @@
                 <p>Coming soon.</p>
                 <div class="links">
                     <a href="https://github.com/KisaragiEffective/webmarket">GitHub</a>
+                    Welcome, {{session('minecraftjp')['preferred_username']}}!
                 </div>
                 
                 <div>

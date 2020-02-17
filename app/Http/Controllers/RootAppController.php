@@ -1,6 +1,9 @@
 <?php
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+
+use Session;
 class RootAppController extends Controller
 {
     /**
@@ -9,6 +12,7 @@ class RootAppController extends Controller
      */
     public function index()
     {
+        //Session::forget('minecraftjp');
         // TODO: Market APIがオンラインかどうか確認
         return view(
             'index', [
