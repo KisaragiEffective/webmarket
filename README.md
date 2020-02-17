@@ -1,22 +1,21 @@
-# webmarket
-some market via your browser for seichi.click
+# WebMarket
+仮想市場をあなたのWebブラウザから！
 
 # 動作環境
-See composer.json
+* `PHP` >= 7
+* `Laravel` ~> 6
 
 # 注釈
+- vendorディレクトリは入っていません。`composer install`で作成してください。
+- `.env`はレポジトリに入っていません。
+- minecraft.jpのOAuthに必要なAPIキーは入っていません。[minecraft.jp](https://minecraft.jp/developer/apps/new)から取得してください。
+- `.env`に以下を追記してください。
+```
+# ここはAPIキーを入れる
+JMS_CLIENT_ID=xxxxx
+JMS_CLIENT_SECRET=xxxxx
+JMS_CALLBACK=https://your.domain.com/login/minecraft.jp/callback
+```
 
-# How to run?
-1. Use Laradock
-*Follow https://laradock.io*
-DON'T FORGET to `composer install` in workspace container!
-ALSO, get API key by registering at https://minecraft.jp/developer/apps/new . Type can be 'Service'.
-
-2. Install 'em
-*OK, you can, but it will the worst experience*
-
-3. Others
-*TODO: Smell Dockerfile? No, I'd not like to. It'll the worst experience in my life.*
-
-# client requirements
-*TODO: Sniff compatilibities. I'd not like to see the "IE", right?*
+# ブラウザ動作環境
+- **IEには対応しません。** EdgeやFirefox、Chromeといった「モダン」ブラウザをお使いください。
