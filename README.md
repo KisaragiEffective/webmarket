@@ -19,3 +19,6 @@ JMS_CALLBACK=https://your.domain.com/login/minecraft.jp/callback
 
 ## ブラウザ動作環境
 - **IEには対応しません。** EdgeやFirefox、Chromeといった「モダン」ブラウザをお使いください。
+
+## ライセンス
+MIT
