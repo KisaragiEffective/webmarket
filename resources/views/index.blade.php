@@ -99,13 +99,22 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Web Market!
+                    Web Market: Front Page
                 </div>
 
-                <p>Coming soon.</p>
                 <div class="links">
                     <a href="https://github.com/KisaragiEffective/webmarket">GitHub</a>
+                    <p>
+                    @if(session('minecraftjp')['preferred_username']!='')
                     Welcome, {{session('minecraftjp')['preferred_username']}}!
+                        @foreach(session('minecraftjp') as $key => $value)
+                            {{$key}}: {{$value ?? '---absent---'}}<br>
+                        @endforeach
+                    @else
+                    Login to unlock all features.
+                    @endif
+
+                    </p>
                 </div>
                 
                 <div id="service-status">
