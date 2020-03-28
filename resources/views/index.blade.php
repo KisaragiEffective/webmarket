@@ -62,27 +62,25 @@
                 margin-bottom: 30px;
             }
 
-            li.ok {
-                color: #404040;
-                border-left: solid 0.5em #1fa67a;/*左側の線*/
-                border-bottom: solid 0.2em #dadada;/*下に灰色線*/
-                background: whitesmoke;
-                margin-bottom: 0.2em;/*下のバーとの余白*/
-                line-height: 1.5;
-                padding: 0.5em;
-                list-style-type: none!important;/*ポチ消す*/
-                font-weight: bold;
+            li.server-ok {
+                border-left: solid 0.5em #1fa67a;
             }
 
-            li.ng {
+            li.server-ng {
+                border-left: solid 0.5em #dd1155;
+            }
+
+            li.server-status {
                 color: #404040;
-                border-left: solid 0.5em #DD1155;/*左側の線*/
-                border-bottom: solid 0.2em #dadada;/*下に灰色線*/
+                /*左側の線*/
+
+                /*下に灰色線*/
+                border-bottom: solid 0.2em #dadada;
                 background: whitesmoke;
                 margin-bottom: 0.2em;/*下のバーとの余白*/
                 line-height: 1.5;
                 padding: 0.5em;
-                list-style-type: none!important;/*ポチ消す*/
+                list-style-type: none;/*ポチ消す*/
                 font-weight: bold;
             }
         </style>
@@ -110,14 +108,18 @@
                     Welcome, {{session('minecraftjp')['preferred_username']}}!
                 </div>
                 
-                <div>
+                <div id="service-status">
                     <ul>
                         @foreach($external_service as $service => $status)
-                        <li class="{{$status}}">{{$service}}: {{strtoupper($status)}}</li>
+                        {{-- 大文字 :thinking: --}}
+                        <li class="server-status server-{{$status}}">{{$service}}: {{strtoupper($status)}}</li>
                         @endforeach
                     </ul>
                 </div>
             </div>
+        </div>
+
+        <div id="footer">
         </div>
     </body>
 </html>
