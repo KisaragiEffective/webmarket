@@ -22,5 +22,5 @@ Route::get('login/minecraft.jp', 'Auth\ExternalAuthController@toProvider');
 Route::get('login/minecraft.jp/callback', 'Auth\ExternalAuthController@fromProvider');
 Route::get('logout/minecraft.jp', 'Auth\ExternalAuthController@logout');
 Route::match(['get', 'post'], 'login', 'Auth\ExternalAuthController@toProvider')->name('login');
-
+Route::get('users/{uuid}', 'UserPageController@onRequest')->where('uuid', '[A-Fa-f\d]{32,32}');
 // There will be a 404.
