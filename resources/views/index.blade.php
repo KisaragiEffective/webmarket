@@ -90,8 +90,10 @@
     <body>
         <div class="flex-center position-ref full-height">
             <div class="top-right links">
+                {{-- ログインしているか？ --}}
                 @if(!!session('minecraftjp'))
-                    <a href="javascript:void(0)">Home</a>
+                    {{-- TODO: 個人ページへの遷移リンク --}}
+                    <a href="/users/{{session('minecraftjp')['uuid']}}">Home</a>
                 @else
                     <a href="{{ route('login') }}">Login</a>
                 @endif
