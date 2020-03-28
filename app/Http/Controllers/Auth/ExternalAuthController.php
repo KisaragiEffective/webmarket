@@ -63,7 +63,7 @@ class ExternalAuthController extends Controller {
             Log::debug('ログアウト処理');
 
             $minecraftjp->logout();
-
+            Session::forget('minecraftjp');
             return redirect()->to('/');
 
         } catch (\Exception $e) {
