@@ -4,6 +4,7 @@
 ## 動作環境
 * `PHP` >= 7
 * `Laravel` ~> 6
+* `MariaDB`
 
 ## 注釈
 - vendorディレクトリは入っていません。`composer install`で作成してください。
