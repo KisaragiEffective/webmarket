@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use MinecraftJP;
 use Log;
 use Session;
+use Illuminate\Support\Facades\DB;
 
 class ExternalAuthController extends Controller {
 
@@ -34,26 +35,36 @@ class ExternalAuthController extends Controller {
     }
     
     public function fromProvider() {
+        $minecraftjp = $this->getJMS();
         try {
-            $minecraftjp = $this->getJMS();
-
-            // Get User
+            Log::debug("lib/mcjp:" . MinecraftJP::VERSION);
             $user = $minecraftjp->getUser();
-            Log::debug(print_r($user, 1));
+            // Log::debug(print_r($user, 1));
             Session::put('minecraftjp', $user);
         } catch (\Exception $e) {
-            return redirect('/login/failed');
+            throw $e;
         }
 
         // 戻り先URLを取得
         $callback_url = Session::get('callback_url');
         if (empty($callback_url)) {
             $callback_url = '/';
-        }
-        else {
+        } else {
             Session::forget('callback_url');
         }
 
+        $session = session('minecraftjp');
+        $uuid = $session["uuid"];
+        // 無名コラムの名前はあてにできないし、stdClassのキーとして不適切
+        $count = DB::select("SELECT COUNT(*) as count FROM accounts WHERE uuid = ?", [$uuid])[0]->count;
+        Log::debug($count);
+        if ($count === 0) {
+            // ようこそ！
+            DB::insert("INSERT INTO accounts VALUES (?, ?, ?)", [0, $uuid, $session["preferred_username"]]);
+            // 絶対あるでしょｗアサーション省略
+            $myAccountId = DB::select("SELECT id FROM accounts WHERE uuid = ?", [$uuid])[0]->id;
+            DB::insert("INSERT INTO banks VALUES (?, ?)", [0, $myAccountId]);
+        }
         return redirect()->to($callback_url);
     }
 
