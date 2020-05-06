@@ -98,9 +98,13 @@
             <p>Now printing...</p>
             <div>
                 <!-- user status -->
-                <p>UUID: {{$uuid}}</p>
-                {{TODO: More Status}}
+                <img src="https://crafatar.com/avatars/{{$uuid}}">
+                <p>UUID: {{$uuid}}</p><br>
+                <p>User ID: {{$user_id}}</p><br>
+                {{-- TODO: More Status --}}
             </div>
+        </div>
+        <div class="transaction">
         </div>
 
         <div id="footer">
