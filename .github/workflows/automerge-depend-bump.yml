@@ -1,7 +1,7 @@
 # ref. https://github.com/marketplace/actions/merge-pull-requests
 name: automerge
 env:
-  MERGE_LABELS: "automerge,dependencies"
+  MERGE_LABELS: "dependencies"
 on:
   pull_request:
     types:
