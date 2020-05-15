@@ -1,7 +1,6 @@
 # ref. https://github.com/marketplace/actions/merge-pull-requests
+# dependabotからのPRを即マージ
 name: automerge
-env:
-  MERGE_LABELS: "dependencies"
 on:
   pull_request:
     types:
@@ -13,6 +12,8 @@ on:
       - ready_for_review
       - reopened
       - unlocked
+    branches:
+      - "dependabot/**"
   pull_request_review:
     types:
       - submitted
