@@ -1,7 +1,8 @@
 # ref. https://github.com/marketplace/actions/merge-pull-requests
+# dependabotからのPRを自動的にマージする
 name: automerge
 env:
-  MERGE_LABELS: "dependencies"
+  MERGE_FILTER_AUTHOR: "dependabot-preview"
 on:
   pull_request:
     types:
