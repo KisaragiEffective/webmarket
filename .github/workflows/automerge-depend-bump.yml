@@ -2,7 +2,7 @@
 # dependabotからのPRを自動的にマージする
 name: automerge
 env:
-  MERGE_FILTER_AUTHOR: "dependabot-preview"
+  MERGE_LABELS: "dependencies"
 on:
   pull_request:
     types:
