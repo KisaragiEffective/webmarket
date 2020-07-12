@@ -105,7 +105,7 @@
                 <div class="links">
                     <a href="https://github.com/KisaragiEffective/webmarket">GitHub</a>
                     <p>
-                    @if(session('minecraftjp')['preferred_username']!='')
+                    @if(session('minecraftjp') && session('minecraftjp')['preferred_username']!='')
                     Welcome, {{session('minecraftjp')['preferred_username']}}!
                         @foreach(session('minecraftjp') as $key => $value)
                             {{$key}}: {{$value ?? '---absent---'}}<br>

@@ -14,11 +14,14 @@ class ExternalAuthController extends Controller {
 
     // ...だからこそPHP 7が使われなければならない
     private function getJMS(): MinecraftJP {
-        return new MinecraftJP([
-                               'clientId'     => env('JMS_CLIENT_ID'),
-                               'clientSecret' => env('JMS_CLIENT_SECRET'),
-                               'redirectUri'  => env('JMS_CALLBACK')
-                           ]);
+    	$it = [
+	       'clientId'     => env('JMS_CLIENT_ID'),
+	       'clientSecret' => env('JMS_CLIENT_SECRET'),
+	       'redirectUri'  => env('JMS_CALLBACK')
+   	];
+    	Log::debug($it);
+    	
+        return new MinecraftJP($it);
     }
     /**
      * Externally authorization
