@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Auth\UserProviderInterface;
 use App\Http\Controllers\Controller;
-
+use App\Http\Database\DatabaseGateway;
 use MinecraftJP;
 use Log;
 use Session;
@@ -37,10 +37,13 @@ class ExternalAuthController extends Controller {
         return redirect($loginUrl);
     }
     
+    /**
+    * callback
+    */
     public function fromProvider() {
         $minecraftjp = $this->getJMS();
         try {
-            Log::debug("lib/mcjp:" . MinecraftJP::VERSION);
+            Log::debug("lib/mcjp version:" . MinecraftJP::VERSION);
             $user = $minecraftjp->getUser();
             // Log::debug(print_r($user, 1));
             Session::put('minecraftjp', $user);
@@ -57,16 +60,23 @@ class ExternalAuthController extends Controller {
         }
 
         $session = session('minecraftjp');
+        Log::debug("Minecraftjp object");
+        Log::debug($session);
         $uuid = $session["uuid"];
         // 無名コラムの名前はあてにできないし、stdClassのキーとして不適切
-        $count = DB::select("SELECT COUNT(*) as count FROM accounts WHERE uuid = ?", [$uuid])[0]->count;
-        Log::debug($count);
+        $count = DB::select("SELECT COUNT(*) as count FROM users WHERE uuid = ?", [$uuid])[0]->count;
+        Log::debug("existence: (uuid = " . $uuid . " ) = " . $count);
+        // 存在するか？
         if ($count === 0) {
             // ようこそ！
-            DB::insert("INSERT INTO accounts VALUES (?, ?, ?)", [0, $uuid, $session["preferred_username"]]);
-            // 絶対あるでしょｗアサーション省略
-            $myAccountId = DB::select("SELECT id FROM accounts WHERE uuid = ?", [$uuid])[0]->id;
-            DB::insert("INSERT INTO banks VALUES (?, ?)", [0, $myAccountId]);
+            $mcid = $session["preferred_username"];
+            DatabaseGateway::registerUser($uuid, $mcid);
+        } else {
+            if ($count !== 1) {
+                // TODO: valid throw statement
+                throw 1;
+            }
+            Log::debug("User { uuid = \"" . $uuid . "\"} Logged in.");
         }
         return redirect()->to($callback_url);
     }
@@ -75,13 +85,13 @@ class ExternalAuthController extends Controller {
         try {
             $minecraftjp = $this->getJMS();
             Log::debug('ログアウト処理');
-
             $minecraftjp->logout();
-            Session::forget('minecraftjp');
-            return redirect()->to('/');
-
         } catch (\Exception $e) {
-            return redirect('/login');
+            // トップページへ遷移
+            Log::debug("Exception occured: logout processing");
+            Log::debug($e);
         }
+        Session::forget('minecraftjp');
+        return redirect()->to('/');
     }
 }
