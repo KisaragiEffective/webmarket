@@ -9,7 +9,7 @@
 ## 注釈
 - vendorディレクトリは入っていません。`composer install`で作成してください。
 - `.env`はレポジトリに入っていません。
-- minecraft.jpのOAuthに必要なAPIキーは入っていません。[minecraft.jp](https://minecraft.jp/developer/apps/new)から取得してください。
+- minecraft.jpのOAuthに必要なAPIキーは入っていません。[minecraft.jp](https://minecraft.jp/developer/apps/new) から取得してください。
 - `.env`に以下を追記してください。
 ```
 # ここはAPIキーを入れる
