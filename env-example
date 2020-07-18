@@ -2,7 +2,8 @@ APP_NAME=Laravel
 APP_ENV=local
 APP_KEY=
 APP_DEBUG=true
-APP_URL=http://localhost
+# 必要ならホストを書き換える
+APP_URL=http://localhost:8080
 
 DB_CONNECTION=mysql
 DB_HOST=localhost
@@ -11,6 +12,7 @@ DB_DATABASE=webmarket
 DB_USERNAME=webmarket
 DB_PASSWORD=
 
-JMS_CLIENT_ID=xxxxx
-JMS_CLIENT_SECRET=xxxxx
-JMS_CALLBACK="http://127.0.0.1:8000/login/minecraft.jp/callback"
+# ここはAPIキーを入れる
+JMS_CLIENT_ID=1111222233334444
+JMS_CLIENT_SECRET=aaabbbccccddddd
+JMS_CALLBACK=${APP_URL}/login/minecraft.jp/callback

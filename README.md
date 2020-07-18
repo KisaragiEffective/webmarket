@@ -6,17 +6,24 @@
 * `Laravel` ~> 6
 * `MariaDB`
 
-## 注釈
-- vendorディレクトリは入っていません。`composer install`で作成してください。
-- `.env`はレポジトリに入っていません。
-- minecraft.jpのOAuthに必要なAPIキーは入っていません。[minecraft.jp](https://minecraft.jp/developer/apps/new) から取得してください。
-- `.env`に以下を追記してください。
+## 環境構築
+1. 以下のコマンドを実行します。
+```shell script
+./setup.sh
+```
+
+2. [minecraft.jp](https://minecraft.jp/developer/apps/new) でminecraft.jpで連携ログインするために必要なAPIキーを取得します。
+3. `.env` ファイルを以下のように書き換えます。
 ```
 # ここはAPIキーを入れる
-JMS_CLIENT_ID=xxxxx
-JMS_CLIENT_SECRET=xxxxx
-JMS_CALLBACK=https://your.domain.com/login/minecraft.jp/callback
+JMS_CLIENT_ID=1111222233334444
+JMS_CLIENT_SECRET=aaabbbccccddddd
 ```
+
+## 注釈
+- minecraft.jpのOAuthに必要なAPIキーは入っていません。[minecraft.jp](https://minecraft.jp/developer/apps/new) から取得してください。
+
+
 
 ## ブラウザ動作環境
 - **IEには対応しません。** EdgeやFirefox、Chromeといった「モダン」ブラウザをお使いください。
