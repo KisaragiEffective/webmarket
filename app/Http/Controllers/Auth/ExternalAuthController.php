@@ -72,11 +72,9 @@ class ExternalAuthController extends Controller {
             $mcid = $session["preferred_username"];
             DatabaseGateway::registerUser($uuid, $mcid);
         } else {
-            if ($count !== 1) {
-                // TODO: valid throw statement
-                throw 1;
-            }
+            // uuidはDBでunique制約を掛けているので絶対1つしか存在しない！！！！
             Log::debug("User { uuid = \"" . $uuid . "\"} Logged in.");
+            DatabaseGateway::
         }
         return redirect()->to($callback_url);
     }
