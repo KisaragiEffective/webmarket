@@ -13,8 +13,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: List files
+      run: ls
     - name: Setup.sh
-      run: setup.sh
+      run: ./setup.sh
     - name: Copy .env
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
     - name: Install Dependencies
