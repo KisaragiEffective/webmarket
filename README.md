@@ -1,5 +1,6 @@
 # WebMarket
 ![Laravel test](https://github.com/kisaragieffective/webmarket/workflows/Laravel/badge.svg?branch=develop)
+
 仮想市場をあなたのWebブラウザから！
 
 ## 動作環境
