@@ -52,25 +52,25 @@ class CreateNecessaryTables extends Migration
         });
         
         Schema::create("transactions", function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->integer("chain_id");
             $table->integer('user_id');
             $table->integer('quantity');
         });
         
         Schema::create("transactions_chain", function(Blueprint $table){
-            $table->id();
+            $table->bigIncrements('id');
             $table->integer('reason');
             $table->date('date');
         });
         
         Schema::create('transactions_reason', function(Blueprint $table){
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('stringify', 512);
         });
         
         Schema::create('auction_bid', function(Blueprint $table){
-            $table->id();
+            $table->bigIncrements('id');
             $table->integer('chain_id');
             $table->integer('user_id');
             $table->integer('item_id');
@@ -79,13 +79,13 @@ class CreateNecessaryTables extends Migration
         });
         
         Schema::create('auction_chain', function(Blueprint $table){
-            $table->id();
+            $table->bigIncrements('id');
             $table->integer('reason');
             $table->date('date');
         });
         
         Schema::create('auction_reason', function(Blueprint $table){
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('stringify', 512);
         });
         
@@ -97,7 +97,7 @@ class CreateNecessaryTables extends Migration
         });
         
         Schema::create('item', function(Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('stringify', 4096);
         });
     }
