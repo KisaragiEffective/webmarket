@@ -1,6 +1,6 @@
 #!/bin/bash
 if [ ! -e ./.env ]; then
-  cp env-example .env
+  cp .env.example .env
 fi
 
 # "Please provide a valid path." 対策
