@@ -99,7 +99,7 @@ class CreateNecessaryTables extends Migration
         Schema::create('item', function(Blueprint $table)) {
             $table->id();
             $table->string('stringify', 4096);
-        }
+        });
     }
 
     /**
