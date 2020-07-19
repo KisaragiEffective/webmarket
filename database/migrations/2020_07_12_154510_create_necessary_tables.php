@@ -96,7 +96,7 @@ class CreateNecessaryTables extends Migration
             $table->primary(['user_id', 'item_id']);
         });
         
-        Schema::create('item', function(Blueprint $table)) {
+        Schema::create('item', function(Blueprint $table) {
             $table->id();
             $table->string('stringify', 4096);
         });
