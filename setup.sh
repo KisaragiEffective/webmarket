@@ -8,5 +8,11 @@ find config/ -type f | xargs grep storage_path \
 | grep framework | sed -e 's/^.*storage_path//' \
 | tr -d ",\(\)'" | awk '{ print "storage/"$0 }' | xargs mkdir -p
 
-(composer install && composer update && php artisan migrate) && echo "Setup success!" || (echo "Setup failed. Exit code: $?" && exit $?)
+if composer install && composer update && php artisan migrate; then
+  echo "Setup success!"
+else
+  echo "Setup failed. Exit code: $?"
+  exit $?
+fi
+
 
