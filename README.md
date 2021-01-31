@@ -3,6 +3,11 @@
 
 仮想市場をあなたのWebブラウザから！
 
+<details>
+  <summary>このプロジェクトは チケット7315 を根拠にしています</summary>
+  * 参照: [7315](https://redmine.seichi.click/issues/7315) *
+</details>
+
 ## 動作環境
 * `PHP` >= 7
 * `Laravel` ~> 6
@@ -24,7 +29,6 @@ JMS_CLIENT_SECRET=aaabbbccccddddd
 
 ## 注釈
 - minecraft.jpのOAuthに必要なAPIキーは入っていません。[minecraft.jp](https://minecraft.jp/developer/apps/new) から取得してください。
-
 
 
 ## ブラウザ動作環境
