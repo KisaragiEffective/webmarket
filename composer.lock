@@ -3826,16 +3826,16 @@
         },
         {
             "name": "facade/flare-client-php",
-            "version": "1.8.0",
+            "version": "1.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/facade/flare-client-php.git",
-                "reference": "69742118c037f34ee1ef86dc605be4a105d9e984"
+                "reference": "b2adf1512755637d0cef4f7d1b54301325ac78ed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facade/flare-client-php/zipball/69742118c037f34ee1ef86dc605be4a105d9e984",
-                "reference": "69742118c037f34ee1ef86dc605be4a105d9e984",
+                "url": "https://api.github.com/repos/facade/flare-client-php/zipball/b2adf1512755637d0cef4f7d1b54301325ac78ed",
+                "reference": "b2adf1512755637d0cef4f7d1b54301325ac78ed",
                 "shasum": ""
             },
             "require": {
@@ -3883,20 +3883,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-04-30T11:11:50+00:00"
+            "time": "2021-09-13T12:16:46+00:00"
         },
         {
             "name": "facade/ignition",
-            "version": "1.17.0",
+            "version": "1.18.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/facade/ignition.git",
-                "reference": "dc49305538aeb77e4c89eba57cee4ceff9e42f33"
+                "reference": "fca0cbe5f900f94773d821b481c16d4ea3503491"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facade/ignition/zipball/dc49305538aeb77e4c89eba57cee4ceff9e42f33",
-                "reference": "dc49305538aeb77e4c89eba57cee4ceff9e42f33",
+                "url": "https://api.github.com/repos/facade/ignition/zipball/fca0cbe5f900f94773d821b481c16d4ea3503491",
+                "reference": "fca0cbe5f900f94773d821b481c16d4ea3503491",
                 "shasum": ""
             },
             "require": {
@@ -3953,7 +3953,7 @@
                 "laravel",
                 "page"
             ],
-            "time": "2021-05-25T07:15:52+00:00"
+            "time": "2021-08-02T07:45:03+00:00"
         },
         {
             "name": "facade/ignition-contracts",
@@ -4006,21 +4006,21 @@
         },
         {
             "name": "filp/whoops",
-            "version": "2.12.1",
+            "version": "2.14.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filp/whoops.git",
-                "reference": "c13c0be93cff50f88bbd70827d993026821914dd"
+                "reference": "f056f1fe935d9ed86e698905a957334029899895"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filp/whoops/zipball/c13c0be93cff50f88bbd70827d993026821914dd",
-                "reference": "c13c0be93cff50f88bbd70827d993026821914dd",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/f056f1fe935d9ed86e698905a957334029899895",
+                "reference": "f056f1fe935d9ed86e698905a957334029899895",
                 "shasum": ""
             },
             "require": {
                 "php": "^5.5.9 || ^7.0 || ^8.0",
-                "psr/log": "^1.0.1"
+                "psr/log": "^1.0.1 || ^2.0 || ^3.0"
             },
             "require-dev": {
                 "mockery/mockery": "^0.9 || ^1.0",
@@ -4069,7 +4069,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-04-25T12:00:00+00:00"
+            "time": "2021-10-03T12:00:00+00:00"
         },
         {
             "name": "fzaninotto/faker",
@@ -5172,16 +5172,16 @@
         },
         {
             "name": "scrivo/highlight.php",
-            "version": "v9.18.1.6",
+            "version": "v9.18.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/scrivo/highlight.php.git",
-                "reference": "44a3d4136edb5ad8551590bf90f437db80b2d466"
+                "reference": "05996fcc61e97978d76ca7d1ac14b65e7cd26f91"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/scrivo/highlight.php/zipball/44a3d4136edb5ad8551590bf90f437db80b2d466",
-                "reference": "44a3d4136edb5ad8551590bf90f437db80b2d466",
+                "url": "https://api.github.com/repos/scrivo/highlight.php/zipball/05996fcc61e97978d76ca7d1ac14b65e7cd26f91",
+                "reference": "05996fcc61e97978d76ca7d1ac14b65e7cd26f91",
                 "shasum": ""
             },
             "require": {
@@ -5240,7 +5240,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-12-22T19:20:29+00:00"
+            "time": "2021-07-09T00:30:39+00:00"
         },
         {
             "name": "sebastian/cli-parser",
